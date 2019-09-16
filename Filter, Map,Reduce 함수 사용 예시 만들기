@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var students = [
+            {name: "장기용", mathScore:80, engScore:100, sciScore:70, isPresent:true},
+            {name: "김고은", mathScore:50, engScore:70, sciScore:90, isPresent:true},
+            {name: "임수정", mathScore:70, engScore:40, sciScore:100, isPresent:false},
+            {name: "이성경", mathScore:100, engScore:90, sciScore:30, isPresent:true}
+    ];
+        // 결석한 학생 제외
+            var ygSchool = students.filter(function(person){
+                return person.isPresent;
+            });
+
+        // 각각의 학생 점수 총점
+            var ygScores = ygSchool.map(function (yg) {
+                return getyg.mathScore + yg.engScore + yg.sciScore;
+            });
+            
+        // 모든 학생 총점
+            var totalYgScore = ygScores.reduce(function (a,b){
+                return a+b;
+            },0);
+
+            console.log(ygSchool)
+            console.log(ygScores)
+            console.log(totalYgScore)
+       
+
+        // 함수결합 - 1
+        // var totalYgScore = students
+        // .filter(function (person) {
+        //     return person.isPresent;
+        // })
+        // .map(function (yg) {
+        //     return yg.mathScore + yg.engScore + yg.sciScore;
+        // })
+        // .reduce(function (a,b) {
+        //     return a + b;
+        // }, 0);
+        // console.log(totalYgScore)
+
+        // 함수결합 - 2
+        //     const totalYgScore = students
+        //    .filter(person => person.isPresent)
+        //    .map(yg => yg.mathScore + yg.engScore + yg.sciScore)
+        //    .reduce((a, b) => a + b, 0);
+        //     console.log(totalYgScore)
+
+
+
+    </script>
+</body>
+</html>
